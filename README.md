@@ -1,4 +1,4 @@
-## Repositorio reservado para desenvolvimento do projeto integrador com o tema Automatização de Verificação de Segurança Aplicado ao Código que contará com servicos de:
+## Repositorio reservado para desenvolvimento do projeto integrador com o tema Automatização de Verificação de Segurança Aplicado ao Código (AVSAC) que contará com servicos de:
 
 - Imagens DockerHub
 - Pipeline Jenkins  
