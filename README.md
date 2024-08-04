@@ -1,17 +1,19 @@
 <h1></h1>
 <h1 align="center"> 🔍 AVSAC - Análise de Vulnerabilidades e Segurança Aplicado ao Código <br>
   <h2 align="center">
-    <a href="https://hub.docker.com/" target="_blank"><img align="center" alt="Docker" src="https://img.shields.io/badge/Docker-Imagens_Docker-blue?style=for-the-badge&logo=docker&logoColor=white"/></a>
-    <a href="https://www.jenkins.io/doc/" target="_blank"><img align="center" alt="Jenkins" src="https://img.shields.io/badge/Jenkins-Pipeline-orange?style=for-the-badge&logo=jenkins&logoColor=white"/></a>
-    <a href="https://docs.sonarqube.org/" target="_blank"><img align="center" alt="SonarQube" src="https://img.shields.io/badge/SonarQube-Análise-blue?style=for-the-badge&logo=sonarqube&logoColor=white"/></a>
+    <a href="https://hub.docker.com/" target="_blank"><img align="center" alt="Docker" src="https://img.shields.io/badge/Docker-Imagens_Docker-black?style=for-the-badge&logo=docker&logoColor=white"/></a>
+    <a href="https://www.jenkins.io/doc/" target="_blank"><img align="center" alt="Jenkins" src="https://img.shields.io/badge/Jenkins-Pipeline-black?style=for-the-badge&logo=jenkins&logoColor=white"/></a>
+    <a href="https://docs.sonarqube.org/" target="_blank"><img align="center" alt="SonarQube" src="https://img.shields.io/badge/SonarQube-Análise-black?style=for-the-badge&logo=sonarqube&logoColor=white"/></a>
     <a href="https://github.com/Ronynetwork/AVSAC" target="_blank"><img align="center" alt="GitHub" src="https://img.shields.io/badge/Github-Repositório-black?style=for-the-badge&logo=github&logoColor=white"></a>
     <br><br>
     <a href="#"><img align="center" alt="Desenvolvedores" src="https://img.shields.io/badge/👨🏻‍💻_Desenvolvedores-Ronyldo_Oliveira_e_Sara_Maria-black?style=for-the-badge"/></a>
     <a href="#"><img align="center" alt="Desenvolvedores" src="https://img.shields.io/badge/💡_Orientador-Felipe_Dantas-black?style=for-the-badge"/></a>
   </h2>
-  
 </h1>
+
 <div align="center">
+  
+  # Diagrama drescritivo do funcionamento do projeto
   <img src="Estrutura/Diagrama.png" alt="Diagrama"/>
 </div>
 
@@ -21,6 +23,7 @@ Com o aumento dos ataques de hackers nas empresas, a preocupação com a seguran
 A configuração do CI/CD incluirá a implementação do SonarQube para conduzir scans automáticos, avaliando a conformidade com as diretrizes de segurança estabelecidas, como as da OWASP (Open Web Application Security Project). Este processo visa identificar vulnerabilidades e promover práticas de desenvolvimento mais seguras desde o início do ciclo de vida do software.
 Com esta abordagem, o projeto busca não apenas automatizar a análise de segurança, mas também integrar a segurança como uma prática contínua e consistente ao longo de todo o processo de desenvolvimento de aplicações, assegurando que as melhores práticas de segurança sejam seguidas de forma sistemática e eficiente.
 
+<h1></h1>
 
 # Resumo da proposta 
 
@@ -36,13 +39,17 @@ considerar requisitos de segurança desde o projeto de software. Em suma, a segu
 uma preocupação secundária, mas sim um elemento essencial e integrado ao processo de
 desenvolvimento de software em um ambiente DevOps.
 
+<h1></h1>
+
 # Objetivo Geral e Objetivos Específicos  
 
 O objetivo geral do projeto é abordar as falhas de segurança presentes em aplicações externas desenvolvidas por empresas, buscando implementar uma cultura organizacional centrada em processos, em que a segurança é considerada uma parte fundamental e integrante das regras de negócio, respeitando a tríade da segurança que são integridade, confiabilidade e disponibilidade. 
 
 O objetivo específico é estabelecer um fluxo que, antes de disponibilizar as aplicações externamente na internet, avalie os riscos de segurança presentes no código. Esse processo será desenvolvido em conjunto com ferramentas de código aberto para construir tal fluxo. Inicialmente, faremos uso do GitHub como repositório para as aplicações e códigos. Em seguida, abordaremos o Jenkins para criar pipelines que automatizem o processo de implantação contínua (CI/CD). Dentro dessas etapas de pipeline, o código será submetido a uma análise pela ferramenta SonarQube, que verificará como os requisitos de segurança estabelecidos pela empresa estão sendo atendidos, a fim de determinar se o código está pronto para ser implantado em produção. Este objetivo visa avaliar o código quanto ao cumprimento das boas práticas definidas pela OWASP, visando evitar vulnerabilidades de segurança que possam ser exploradas por hackers.
 
-# Disciplinas do curso de Redes de Computadores Associada ao Projeto
+<h1></h1>
+
+# Disciplinas do curso de Redes de Computadores Associadas ao Projeto
 
 O diferencial deste projeto reside na integração de diversas disciplinas do curso de Redes de Computadores do IFRN. Isso inclui disciplinas equivalentes à Administração de Sistemas Abertos, baseadas nos conteúdos de Servidor Web (HTTP), conforme descrito no item 2.4 do Plano de Curso (PPC) da Tecnologia em Redes de Computadores na página 75. O projeto aborda a implementação de várias ferramentas que são acessadas e manipuladas por meio de serviços web.
 
@@ -52,6 +59,8 @@ Essa abordagem abrangente e integrada enriquece a compreensão e a aplicação p
 
 Além disso, a estrutura da disciplina foca em como esses serviços podem ser projetados para atender a requisitos de segurança desde o início do desenvolvimento, utilizando práticas e técnicas que garantem a proteção e a integridade das informações transmitidas.
 
+<h1></h1>
+
 ## As tarefas serão desenvolvidas em 6 semanas para apresentação final do projeto:
 SPRINT 1 – Criação do repositório do Github e criação das pipelines (Ronyldo). Instalação do jenkins (Sara). <br>
 SPRINT 2 – Criação do dockerfile do sonarqube e Configuração do sonarqube ao jekins (Sara). Configurando novamente a pipeline do github (Ronyldo).<br> 
@@ -59,5 +68,7 @@ SPRINT 3 – Configuração do Quality Gates no sonarqube (Sara). Configurando n
 SPRINT 4 – Buscando códigos para amostra de teste de qualidade de segurança para rodar na ferramenta (Sara e Ronyldo). <br>
 SPRINT 5 – Validando a funcionalidade do fluxo do processo desenvolvido, com as amostras de códigos coletadas (Sara e Ronyldo).<br> 
 SPRINT 6 – Organizando a apresentação em formato de slide do projeto final, com todos os resultados obtidos e funcionais (Sara). Gravando as etapas e validando os últimos teste do projeto (Ronyldo).<br>
+
+<h1></h1>
 
 ### O objetivo é demonstrar um formato de aplicação essencial para toda e qualquer empresa/desenvolvedor para o auxilio da criação dos seus projetos.
