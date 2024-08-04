@@ -1,15 +1,19 @@
-<h1 align="center">AVSAC</h1>
-<h2 align="center">Análise de Vulnerabilidades e Segurança Aplicado ao Código <br><br>
-  <a href="https://hub.docker.com/" target="_blank"><img align="center" alt="Docker" src="https://img.shields.io/badge/Imagens_Docker-Docker-blue?style=for-the-badge&logo=docker&logoColor=white"/></a>
-  <a href="https://www.jenkins.io/doc/" target="_blank"><img align="center" alt="Jenkins" src="https://img.shields.io/badge/Pipeline-Jenkins-orange?style=for-the-badge&logo=jenkins&logoColor=white"/></a>
-  <a href="https://docs.sonarqube.org/" target="_blank"><img align="center" alt="SonarQube" src="https://img.shields.io/badge/Análise-SonarQube-blue?style=for-the-badge&logo=sonarqube&logoColor=white"/></a>
-  <a href="https://github.com/Ronynetwork/AVSAC" target="_blank"><img align="center" alt="GitHub" src="https://img.shields.io/badge/Repositório-Github-black?style=for-the-badge&logo=github&logoColor=white"></a>
-  <br>
-</h2>
-
-  <div align="center">
-    <img src="Estrutura/Diagrama.png" alt="Diagrama"/>
-  </div>
+<h1></h1>
+<h1 align="center"> 🔍 AVSAC - Análise de Vulnerabilidades e Segurança Aplicado ao Código <br>
+  <h2 align="center">
+    <a href="https://hub.docker.com/" target="_blank"><img align="center" alt="Docker" src="https://img.shields.io/badge/Docker-Imagens_Docker-blue?style=for-the-badge&logo=docker&logoColor=white"/></a>
+    <a href="https://www.jenkins.io/doc/" target="_blank"><img align="center" alt="Jenkins" src="https://img.shields.io/badge/Jenkins-Pipeline-orange?style=for-the-badge&logo=jenkins&logoColor=white"/></a>
+    <a href="https://docs.sonarqube.org/" target="_blank"><img align="center" alt="SonarQube" src="https://img.shields.io/badge/SonarQube-Análise-blue?style=for-the-badge&logo=sonarqube&logoColor=white"/></a>
+    <a href="https://github.com/Ronynetwork/AVSAC" target="_blank"><img align="center" alt="GitHub" src="https://img.shields.io/badge/Github-Repositório-black?style=for-the-badge&logo=github&logoColor=white"></a>
+    <br><br>
+    <a href="#"><img align="center" alt="Desenvolvedores" src="https://img.shields.io/badge/👨🏻‍💻_Desenvolvedores-Ronyldo_Oliveira_e_Sara_Maria-black?style=for-the-badge"/></a>
+    <a href="#"><img align="center" alt="Desenvolvedores" src="https://img.shields.io/badge/💡_Orientador-Felipe_Dantas-black?style=for-the-badge"/></a>
+  </h2>
+  
+</h1>
+<div align="center">
+  <img src="Estrutura/Diagrama.png" alt="Diagrama"/>
+</div>
 
 # Introdução 
 
