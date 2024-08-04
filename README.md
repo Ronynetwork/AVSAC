@@ -1,16 +1,16 @@
-## Repositorio reservado para desenvolvimento do projeto integrador com o tema Automatização de Verificação de Segurança Aplicado ao Código (AVSAC) representado pelo diagrama a seguir:
-![Diagrama](Estrutura/Diagrama.png)
-
-- Imagens DockerHub
-- Pipeline Jenkins  
-- Análise de código do SonarQube
+<h1 align="center">AVSAC</h1>
+<h2 align="center">Análise de Vulnerabilidades e Segurança Aplicado ao Código <br><br>
+  <a href="https://hub.docker.com/" target="_blank"><img align="center" alt="Docker" src="https://img.shields.io/badge/Imagens_Docker-Docker-blue?style=for-the-badge&logo=docker&logoColor=white"/></a>
+  <a href="https://www.jenkins.io/doc/" target="_blank"><img align="center" alt="Jenkins" src="https://img.shields.io/badge/Pipeline-Jenkins-orange?style=for-the-badge&logo=jenkins&logoColor=white"/></a>
+  <a href="https://docs.sonarqube.org/" target="_blank"><img align="center" alt="SonarQube" src="https://img.shields.io/badge/Análise-SonarQube-blue?style=for-the-badge&logo=sonarqube&logoColor=white"/></a>
+  <a href="https://github.com/Ronynetwork/AVSAC" target="_blank"><img align="center" alt="GitHub" src="https://img.shields.io/badge/Repositório-Github-black?style=for-the-badge&logo=github&logoColor=white"></a>
+  <br>
+</h2>
 
 <div style="display: inline-block">
-  <a href="https://hub.docker.com/" target="_blank"><img align="center" alt="Docker" src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"/></a>
-<!--  <a href="https://kubernetes.io/docs/" target="_blank"><img align="center" alt="Kubernetes" src="https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white"/></a> -->
-  <a href="https://www.jenkins.io/doc/" target="_blank"><img align="center" alt="Jenkins" src="https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=black"/></a>
-  <a href="https://docs.sonarqube.org/" target="_blank"><img align="center" alt="SonarQube" src="https://img.shields.io/badge/SonarQube-4E9BCD?style=for-the-badge&logo=sonarqube&logoColor=white"/></a>
-</div><br>
+
+![Diagrama](Estrutura/Diagrama.png)
+
 
 ## As tarefas serão desenvolvidas em 6 semanas para apresentação final do projeto:
 SPRINT 1 – Criação do repositório do Github e criação das pipelines (Ronyldo). Instalação do jenkins (Sara). <br>
