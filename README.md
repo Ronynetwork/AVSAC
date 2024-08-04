@@ -1,9 +1,9 @@
 <h1></h1>
 <h1 align="center"> 🔍 AVSAC - Análise de Vulnerabilidades e Segurança Aplicado ao Código <br>
   <h2 align="center">
-    <a href="https://hub.docker.com/" target="_blank"><img align="center" alt="Docker" src="https://img.shields.io/badge/Docker-Imagens_Docker-black?style=for-the-badge&logo=docker&logoColor=white"/></a>
-    <a href="https://www.jenkins.io/doc/" target="_blank"><img align="center" alt="Jenkins" src="https://img.shields.io/badge/Jenkins-Pipeline-black?style=for-the-badge&logo=jenkins&logoColor=white"/></a>
-    <a href="https://docs.sonarqube.org/" target="_blank"><img align="center" alt="SonarQube" src="https://img.shields.io/badge/SonarQube-Análise-black?style=for-the-badge&logo=sonarqube&logoColor=white"/></a>
+    <a href="https://hub.docker.com/" target="_blank"><img align="center" alt="Docker" src="https://img.shields.io/badge/Docker-Imagens_Docker-black?style=for-the-badge&logo=docker&logoColor=blue"/></a>
+    <a href="https://www.jenkins.io/doc/" target="_blank"><img align="center" alt="Jenkins" src="https://img.shields.io/badge/Jenkins-Pipeline-black?style=for-the-badge&logo=jenkins&logoColor=orange"/></a>
+    <a href="https://docs.sonarqube.org/" target="_blank"><img align="center" alt="SonarQube" src="https://img.shields.io/badge/SonarQube-Análise-black?style=for-the-badge&logo=sonarqube&logoColor=blue"/></a>
     <a href="https://github.com/Ronynetwork/AVSAC" target="_blank"><img align="center" alt="GitHub" src="https://img.shields.io/badge/Github-Repositório-black?style=for-the-badge&logo=github&logoColor=white"></a>
     <br><br>
     <a href="#"><img align="center" alt="Desenvolvedores" src="https://img.shields.io/badge/👨🏻‍💻_Desenvolvedores-Ronyldo_Oliveira_e_Sara_Maria-black?style=for-the-badge"/></a>
