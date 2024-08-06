@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     git credentialsId: 'log-token-git',
-                        url: 'https://github.com/Ronynetwork/Project.git',
+                        url: 'https://github.com/Ronynetwork/AVSAC.git',
                         branch: 'main'
                 }
             }
