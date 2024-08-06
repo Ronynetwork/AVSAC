@@ -11,6 +11,14 @@ pipeline {
                 }
             }
         }
+        stage('Instalação do Docker') {
+            steps {
+                script {
+                    echo 'chmod +x ./Estrutura/docker_setup.sh'
+                    echo './Estrutura/docker_setup.sh'
+                }
+            }
+        }
         stage('Configuração do SonarQube') {
             steps {
                 script{
