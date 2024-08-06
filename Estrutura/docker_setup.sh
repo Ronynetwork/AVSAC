@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Atualiza a lista de pacotes e instala dependências necessárias
 sudo apt-get update
@@ -25,6 +25,3 @@ VERSION_STRING=5:27.1.0-1~ubuntu.24.04~noble
 
 # Instala o Docker e plugins
 sudo apt-get install -y docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING containerd.io docker-buildx-plugin docker-compose-plugin
-
-# Executa o Docker Compose
-docker compose -f /caminho/para/seu/docker-compose.yml up -d
