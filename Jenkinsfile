@@ -25,7 +25,7 @@ pipeline {
             steps {
                 script{
                     echo "realizando build do SonarQube"
-                    sh "docker compose -f Estrutra/docker-compose-sonar.yml up -d"
+                    sh "docker compose -f ./Estrutra/docker-compose-sonar.yml up -d"
                 }
             }
         }
