@@ -16,8 +16,8 @@ pipeline {
         stage('Instalação do Docker') {
             steps {
                 script {
-                    echo 'chmod +x ./Estrutura/docker_setup.sh'
-                    echo './Estrutura/docker_setup.sh'
+                    sh 'chmod +x ./Estrutura/docker_setup.sh'
+                    sh './Estrutura/docker_setup.sh'
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
             steps {
                 script{
                     echo "realizando build do SonarQube"
-                    echo "docker compose -f Estrutra/docker-compose-sonar.yml up -d"
+                    sh "docker compose -f Estrutra/docker-compose-sonar.yml up -d"
                 }
             }
         }
