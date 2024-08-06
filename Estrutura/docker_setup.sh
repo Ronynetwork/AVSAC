@@ -17,11 +17,6 @@ echo \
   $(. /etc/os-release && echo \"$VERSION_CODENAME\") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-# Atualiza a lista de pacotes
+# Atualiza a lista de pacotes e instala o Latest dos plugins docker
 sudo apt-get update
-
-# Define a versão do Docker a ser instalada
-VERSION_STRING=5:27.1.0-1~ubuntu.24.04~noble
-
-# Instala o Docker e plugins
-sudo apt-get install -y docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
