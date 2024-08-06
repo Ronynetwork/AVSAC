@@ -11,5 +11,13 @@ pipeline {
                 }
             }
         }
+        stage('Configuração do SonarQube') {
+            steps {
+                script{
+                    echo "realizando build do SonarQube"
+                    echo "docker compose -f Estrutra/docker-compose-sonar.yml up -d"
+                }
+            }
+        }
     }
 }
