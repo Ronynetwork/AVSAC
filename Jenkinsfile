@@ -31,7 +31,7 @@ pipeline {
                     } 
                     else {
                         echo "Realizando build do SonarQube"
-                        sh 'docker compose -f Estrutura/docker-compose-sonar-testes.yml up -d'
+                        sh 'docker compose -f Estrutura/docker-compose-sonar.yml up -d'
                     }
                 }
             }
