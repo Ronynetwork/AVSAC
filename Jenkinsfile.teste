@@ -55,7 +55,7 @@ pipeline {
                         // Executando a análise do código sem especificar sonar.sources
                         sh """
                         ${scannerHome}/bin/sonar-scanner \
-                        -Dsonar.projectKey=AVSAC \
+                        -Dsonar.projectKey=AVSAC_TESTE \
                         -Dsonar.sources=. \
                         -Dsonar.host.url=${SONAR_HOST_URL} \
                         -Dsonar.login=${SONAR_AUTH_TOKEN} 
