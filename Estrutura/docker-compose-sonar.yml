@@ -1,6 +1,4 @@
 #Script do docker compose do serviço da imagem do sonarqube
-version: '3.8'
-
 services:
   sonarqube:
     container_name: sonarqube
