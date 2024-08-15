@@ -51,12 +51,12 @@ pipeline {
                     def scannerHome = tool 'sonar-scanner';
                     
                     // Obtendo as configurações do SonarQube definidas no Jenkins pelo SonarQube Servers
-                    withSonarQubeEnv('jenkins-sonar') {
+                    withSonarQubeEnv('AVSAC') {
                         // Executando a análise do código sem especificar sonar.sources
                         sh """
                         ${scannerHome}/bin/sonar-scanner \
                         -Dsonar.sources=. \
-                        -Dsonar.projectKey=AVSAC \
+                        -Dsonar.projectKey= AVSAC \
                         -Dsonar.host.url=${SONAR_HOST_URL} \
                         -Dsonar.login=${SONAR_AUTH_TOKEN} 
                         """
