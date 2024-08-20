@@ -39,8 +39,8 @@ pipeline {
         stage('Delay') {
             steps {
                 script {
-                    echo 'Aguardando 20 segundos para a inicialização completa do SonarQube...'
-                    sleep time:20, unit: 'SECONDS'
+                    echo 'Aguardando 25 segundos para a inicialização completa do SonarQube...'
+                    sleep time:25, unit: 'SECONDS'
                 }
             }
         }
