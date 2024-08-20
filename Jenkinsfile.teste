@@ -82,7 +82,6 @@ pipeline {
                         reportName: 'SonarQube Notification'
                     ])
                 }
-            }
         }
     }
 }
