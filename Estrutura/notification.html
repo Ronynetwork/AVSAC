@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SonarQube Notification</title>
+    <style>
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f44336;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none; /* Start hidden */
+        }
+        .notification.show {
+            display: block;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+        @keyframes fadein {
+            from {bottom: 0; opacity: 0;}
+            to {bottom: 20px; opacity: 1;}
+        }
+        @keyframes fadeout {
+            from {bottom: 20px; opacity: 1;}
+            to {bottom: 0; opacity: 0;}
+        }
+    </style>
+</head>
+<body>
+    <div id="sonarNotification" class="notification">
+        <p><strong>SonarQube Issues:</strong></p>
+        <ul id="issueList">
+            <!-- Issues will be injected here -->
+        </ul>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Example of adding issues dynamically
+            let issues = [
+                "Unused variable at line 23",
+                "Null pointer dereference at line 45",
+                "Deprecated API usage at line 78"
+            ];
+            
+            let issueList = document.getElementById("issueList");
+            issues.forEach(issue => {
+                let li = document.createElement("li");
+                li.textContent = issue;
+                issueList.appendChild(li);
+            });
+
+            // Show the notification
+            let notification = document.getElementById("sonarNotification");
+            notification.classList.add("show");
+        });
+    </script>
+</body>
+</html>
