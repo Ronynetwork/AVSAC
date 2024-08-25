@@ -4,16 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SonarQube Notification</title>
-    <link rel="stylesheet" href="style.css"> <!-- Referência ao arquivo CSS externo -->
+    <link rel="stylesheet" href="styles.css"> <!-- Referência ao arquivo CSS externo -->
 </head>
 <body>
     <div class="notification">
         <p><strong>SonarQube Issues:</strong></p>
-        <ul>
-            <li>Unused variable at line 36</li>
-            <li>Null pointer dereference at line 46</li>
-            <li>Deprecated API usage at line 78</li>
+        <ul id="errorList">
+            <li data-target="detail1">Unused variable at line 36</li>
+            <li data-target="detail2">Null pointer dereference at line 46</li>
+            <li data-target="detail3">Deprecated API usage at line 78</li>
         </ul>
+        <div id="detailsContainer">
+            <div id="detail1" class="details">
+                <h3>Unused variable at line 36</h3>
+                <p>Details about the unused variable error...</p>
+            </div>
+            <div id="detail2" class="details">
+                <h3>Null pointer dereference at line 46</h3>
+                <p>Details about the null pointer dereference error...</p>
+            </div>
+            <div id="detail3" class="details">
+                <h3>Deprecated API usage at line 78</h3>
+                <p>Details about the deprecated API usage error...</p>
+            </div>
+        </div>
     </div>
+    <script src="scripts.js"></script> <!-- Referência ao arquivo JS externo -->
 </body>
 </html>
