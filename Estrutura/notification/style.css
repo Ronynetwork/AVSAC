@@ -21,38 +21,35 @@ body {
     width: 100%;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+input[type="radio"] {
+    display: none;
 }
 
-li {
-    margin-bottom: 10px;
+label {
+    display: block;
     cursor: pointer;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #f9f9f9;
+    margin-top: 5px;
     transition: background-color 0.3s, color 0.3s;
 }
 
-li:hover {
+label:hover {
     background-color: #ddd; /* Cor de fundo ao passar o mouse */
     color: #333; /* Cor do texto ao passar o mouse */
 }
 
 .details {
     display: none;
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #f9f9f9;
-    max-width: 600px;
-    width: 100%;
 }
 
-.details.active {
+input[type="radio"]:checked + label + .details {
     display: block;
 }
