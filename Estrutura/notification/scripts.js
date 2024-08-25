@@ -1,9 +1,9 @@
 // scripts.js
 document.addEventListener('DOMContentLoaded', () => {
-    const errorListItems = document.querySelectorAll('#errorList li');
+    const errorMenuItems = document.querySelectorAll('#errorMenu li');
     const detailsContainer = document.getElementById('detailsContainer');
 
-    errorListItems.forEach(item => {
+    errorMenuItems.forEach(item => {
         item.addEventListener('click', () => {
             const targetId = item.getAttribute('data-target');
             const targetDetail = document.getElementById(targetId);
