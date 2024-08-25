@@ -1,22 +1,23 @@
 // scripts.js
 document.addEventListener('DOMContentLoaded', () => {
-    const errorMenuItems = document.querySelectorAll('#errorMenu li');
-    const detailsContainer = document.getElementById('detailsContainer');
+    // Seleciona todos os títulos dos erros
+    const errorTitles = document.querySelectorAll('.error-title');
 
-    errorMenuItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const targetId = item.getAttribute('data-target');
-            const targetDetail = document.getElementById(targetId);
+    errorTitles.forEach(title => {
+        title.addEventListener('click', () => {
+            // Seleciona o próximo elemento irmão (detalhes do erro)
+            const details = title.nextElementSibling;
 
-            // Oculta todos os detalhes
-            const allDetails = detailsContainer.querySelectorAll('.details');
-            allDetails.forEach(detail => {
-                detail.classList.remove('active');
-            });
-
-            // Mostra o detalhe correspondente
-            if (targetDetail) {
-                targetDetail.classList.add('active');
+            // Alterna a visibilidade dos detalhes
+            if (details.classList.contains('show')) {
+                details.classList.remove('show');
+            } else {
+                // Esconde todos os detalhes
+                document.querySelectorAll('.error-details').forEach(detail => {
+                    detail.classList.remove('show');
+                });
+                // Mostra o detalhe clicado
+                details.classList.add('show');
             }
         });
     });
