@@ -9,6 +9,7 @@ body {
     height: 100vh;
     margin: 0;
 }
+
 .notification {
     background-color: #f44336; /* Fundo vermelho da notificação */
     color: white;
@@ -19,18 +20,28 @@ body {
     max-width: 600px;
     width: 100%;
 }
+
 ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
+
 li {
     margin-bottom: 10px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s, color 0.3s;
 }
+
 li:hover {
-    background-color: #eee; /* Cor de fundo ao passar o mouse */
+    background-color: #ddd; /* Cor de fundo ao passar o mouse */
+    color: #333; /* Cor do texto ao passar o mouse */
 }
+
 .details {
     display: none;
     margin-top: 20px;
@@ -41,6 +52,7 @@ li:hover {
     max-width: 600px;
     width: 100%;
 }
+
 .details.active {
     display: block;
 }
