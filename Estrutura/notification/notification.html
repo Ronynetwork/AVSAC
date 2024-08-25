@@ -9,26 +9,25 @@
 <body>
     <div class="notification">
         <p><strong>SonarQube Issues:</strong></p>
-        <input type="radio" id="menu1" name="menu" checked>
-        <label for="menu1">Unused variable at line 36</label>
-        <div class="details">
-            <h3>Unused variable at line 36</h3>
-            <p>Details about the unused variable error...</p>
+        <div class="error" id="error1">
+            <h3 class="error-title">Unused variable at line 36</h3>
+            <div class="error-details">
+                <p>Details about the unused variable error...</p>
+            </div>
         </div>
-        
-        <input type="radio" id="menu2" name="menu">
-        <label for="menu2">Null pointer dereference at line 46</label>
-        <div class="details">
-            <h3>Null pointer dereference at line 46</h3>
-            <p>Details about the null pointer dereference error...</p>
+        <div class="error" id="error2">
+            <h3 class="error-title">Null pointer dereference at line 46</h3>
+            <div class="error-details">
+                <p>Details about the null pointer dereference error...</p>
+            </div>
         </div>
-        
-        <input type="radio" id="menu3" name="menu">
-        <label for="menu3">Deprecated API usage at line 78</label>
-        <div class="details">
-            <h3>Deprecated API usage at line 78</h3>
-            <p>Details about the deprecated API usage error...</p>
+        <div class="error" id="error3">
+            <h3 class="error-title">Deprecated API usage at line 78</h3>
+            <div class="error-details">
+                <p>Details about the deprecated API usage error...</p>
+            </div>
         </div>
     </div>
+    <script src="scripts.js"></script> <!-- Referência ao arquivo JS externo -->
 </body>
 </html>
