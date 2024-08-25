@@ -51,7 +51,7 @@ pipeline {
                     def scannerHome = tool 'sonar-scanner';
                     
                     // Obtendo as configurações do SonarQube definidas no Jenkins pelo SonarQube Servers
-                    withSonarQubeEnv('jenkins-sonar') {
+                    withSonarQubeEnv('AVSAC') {
                         // Executando a análise do código sem especificar sonar.sources
                         sh """
                         ${scannerHome}/bin/sonar-scanner \
