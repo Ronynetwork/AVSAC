@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SonarQube Notification</title>
+    <link rel="stylesheet" href="style.css"> <!-- Referência ao arquivo CSS externo -->
+</head>
+<body>
+    <div class="notification">
+        <p><strong>SonarQube Issues:</strong></p>
+        <button id="toggleAll" class="toggle-all">Show All</button>
+
+        <div class="error" id="error1">
+            <h3 class="error-title">codigoteste/src/index.html <span class="toggle-icon">+</span></h3>
+            <div class="error-details">
+                <p>Message: Add "lang" and/or "xml:lang" attributes to this "<html>" element at line 2</p>
+                <p>Severity: MAJOR</p>
+                <p>Line in Code: "const updateCount = (comments) => { "</p>
+            </div>
+        </div>
+    
+        <div class="error" id="error2">
+            <h3 class="error-title">codigoteste/src/index.js <span class="toggle-icon">+</span></h3>
+            <div class="error-details">
+                <p>Message: Either use this collection's contents or remove the collection. at line 47</p>
+                <p>Severity: MAJOR</p>
+                <p>Line in Code: "    const newComment = formComment.value; "</p>
+            </div>
+        </div>
+    
+        <div class="error" id="error3">
+            <h3 class="error-title">codigoteste/src/popup.js <span class="toggle-icon">+</span></h3>
+            <div class="error-details">
+                <p>Message: Remove this useless assignment to variable "refreshNewComment". at line 36</p>
+                <p>Severity: MAJOR</p>
+                <p>Line in Code: "  } "</p>
+            </div>
+        </div>
+    
+        <div class="error" id="error4">
+            <h3 class="error-title">teste_scripts/Projeto/src/index.js <span class="toggle-icon">+</span></h3>
+            <div class="error-details">
+                <p>Message: Either use this collection's contents or remove the collection. at line 47</p>
+                <p>Severity: MAJOR</p>
+                <p>Line in Code: "    const newComment = formComment.value; "</p>
+            </div>
+        </div>
+    
+        <div class="error" id="error5">
+            <h3 class="error-title">teste_scripts/Projeto/src/popup.js <span class="toggle-icon">+</span></h3>
+            <div class="error-details">
+                <p>Message: Remove this useless assignment to variable "refreshNewComment". at line 36</p>
+                <p>Severity: MAJOR</p>
+                <p>Line in Code: "  } "</p>
+            </div>
+        </div>
+    
+    </div>
+    <script>
+        document.querySelectorAll('.error-title').forEach(title => {
+            title.addEventListener('click', () => {
+                const details = title.nextElementSibling;
+                const toggleIcon = title.querySelector('.toggle-icon');
+                if (details.style.display === 'none' || details.style.display === '') {
+                    details.style.display = 'block';
+                    toggleIcon.textContent = '-';
+                } else {
+                    details.style.display = 'none';
+                    toggleIcon.textContent = '+';
+                }
+            });
+        });
+
+        document.getElementById('toggleAll').addEventListener('click', () => {
+            const allDetailsVisible = Array.from(document.querySelectorAll('.error-details')).every(details => details.style.display === 'block');
+            document.querySelectorAll('.error-details').forEach(details => {
+                details.style.display = allDetailsVisible ? 'none' : 'block';
+            });
+            document.querySelectorAll('.toggle-icon').forEach(icon => {
+                icon.textContent = allDetailsVisible ? '+' : '-';
+            });
+        });
+    </script>
+</body>
+</html>
