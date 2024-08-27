@@ -77,7 +77,7 @@ pipeline {
                         alwaysLinkToLastBuild: true,
                         keepAll: true,
                         reportDir: 'Estrutura/notification',
-                        reportFiles: 'notification.html',
+                        reportFiles: 'sonarqube-notification.html',
                         reportName: 'SonarQube Notification'
                     ])
                 }
