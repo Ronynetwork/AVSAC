@@ -16,7 +16,7 @@ pipeline {
         stage('Instalação do Docker') {
             steps {
                 script {
-                    sh 'chmod +x ./Estrutura/docker_setup.sh'
+                    sh 'chmod +x Estrutura/docker_setup.sh'
                     sh './Estrutura/docker_setup.sh'
                 }
             }
