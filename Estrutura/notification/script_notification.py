@@ -67,7 +67,6 @@ html_content = '''
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="sandbox allow-same-origin allow-scripts; default-src 'self'; script-src 'self' 'unsafe-inline';">
     <title>SonarQube Notification</title>
     <link rel="stylesheet" href="style.css"> <!-- Referência ao arquivo CSS externo -->
 </head>
@@ -92,25 +91,7 @@ for index, error in enumerate(errors):
 # Fechando tags HTML
 html_content += '''
     </div>
-    <script>
-        document.querySelectorAll('.error-title').forEach(title => {
-            title.addEventListener('click', () => {
-                const details = title.nextElementSibling;
-                if (details.style.display === 'none' || details.style.display === '') {
-                    details.style.display = 'block';
-                } else {
-                    details.style.display = 'none';
-                }
-            });
-        });
-
-        document.getElementById('toggleAll').addEventListener('click', () => {
-            const allDetailsVisible = Array.from(document.querySelectorAll('.error-details')).every(details => details.style.display === 'block');
-            document.querySelectorAll('.error-details').forEach(details => {
-                details.style.display = allDetailsVisible ? 'none' : 'block';
-            });
-        });
-    </script>
+    <script src="script_java.js"></script>
 </body>
 </html>
 '''
