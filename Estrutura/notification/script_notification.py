@@ -83,7 +83,7 @@ for index, error in enumerate(errors):
             <div class="error-details">
                 <p>Message: {error["message"]} at line {error["line"]}</p>
                 <p>Severity: {error["severity"]}</p>
-                <p>Line in Code: "{error["code"]} "</p>
+                <p>Line in Code: "{error["code"]}"</p>
             </div>
         </div>
     '''
@@ -95,13 +95,10 @@ html_content += '''
         document.querySelectorAll('.error-title').forEach(title => {
             title.addEventListener('click', () => {
                 const details = title.nextElementSibling;
-                const toggleIcon = title.querySelector('.toggle-icon');
                 if (details.style.display === 'none' || details.style.display === '') {
                     details.style.display = 'block';
-                    toggleIcon.textContent = '-';
                 } else {
                     details.style.display = 'none';
-                    toggleIcon.textContent = '+';
                 }
             });
         });
@@ -110,9 +107,6 @@ html_content += '''
             const allDetailsVisible = Array.from(document.querySelectorAll('.error-details')).every(details => details.style.display === 'block');
             document.querySelectorAll('.error-details').forEach(details => {
                 details.style.display = allDetailsVisible ? 'none' : 'block';
-            });
-            document.querySelectorAll('.toggle-icon').forEach(icon => {
-                icon.textContent = allDetailsVisible ? '+' : '-';
             });
         });
     </script>
@@ -123,7 +117,6 @@ html_content += '''
 # Salvar o HTML em um arquivo
 path_dir = os.path.dirname(os.path.abspath(__file__))
 file_path = os.path.join(path_dir, 'sonarqube-notification.html')
-
 
 with open(file_path, 'w') as file:
     file.write(html_content)
