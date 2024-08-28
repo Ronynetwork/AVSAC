@@ -65,7 +65,7 @@ html_content = '''
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline';">
+    <meta http-equiv="Content-Security-Policy" content="sandbox allow-same-origin allow-scripts; default-src 'self'; script-src 'self' 'unsafe-inline';">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SonarQube Notification</title>

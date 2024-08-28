@@ -69,23 +69,6 @@ pipeline {
                 waitForQualityGate abortPipeline: false
             }
         }
-        stage('Modify HTML for Sandbox') {
-            steps {
-                script {
-                    // Caminho para o arquivo HTML gerado
-                    def htmlFilePath = 'Estrutura/notification/sonarqube-notification.html'
-
-                    // Leitura do conteúdo do arquivo HTML
-                    def htmlContent = readFile htmlFilePath
-
-                    // Adiciona o atributo sandbox="allow-scripts" ao iframe
-                    htmlContent = htmlContent.replace('<iframe', '<iframe sandbox="allow-scripts"')
-
-                    // Escreve o conteúdo de volta no arquivo
-                    writeFile file: htmlFilePath, text: htmlContent
-                }
-            }
-        }
         stage('Notification in jenkins') {
             steps {
                 sh 'chmod +x ./Estrutura/notification/script_notification.py'
