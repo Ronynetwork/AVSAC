@@ -3,7 +3,7 @@ import requests, os
 
 # Configurações do SonarQube
 SONARQUBE_URL = "http://localhost:9000"
-TOKEN = "squ_7b34b7a3dc25566deb28a91cb04dee7a7c502f07"
+TOKEN = "squ_ad26c9185dac75425942aa3e7a062d4aeb95f6c4"
 PROJECT_KEY = 'AVSAC'
 
     # Componente do arquivo desejado
