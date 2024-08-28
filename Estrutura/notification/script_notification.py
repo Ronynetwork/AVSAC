@@ -79,7 +79,7 @@ html_content = '''
 for index, error in enumerate(errors):
     html_content += f'''
         <div class="error" id="error{index + 1}">
-            <h3 class="error-title">{error["file"]} <span class="toggle-icon">+</span></h3>
+            <h3 class="error-title">{error["file"]} <span class="toggle-icon"></span></h3>
             <div class="error-details">
                 <p>Message: {error["message"]} at line {error["line"]}</p>
                 <p>Severity: {error["severity"]}</p>
