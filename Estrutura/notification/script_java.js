@@ -1,4 +1,3 @@
-// scripts.js
 document.addEventListener('DOMContentLoaded', () => {
     const errorTitles = document.querySelectorAll('.error-title');
     const toggleAllButton = document.getElementById('toggleAll');
@@ -17,16 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const details = title.nextElementSibling;
             const isVisible = details.classList.contains('show');
 
-            // Oculta todos os detalhes
             errorDetails.forEach(detail => {
                 detail.classList.remove('show');
             });
-            // Remove a classe active de todos os títulos
+
             errorTitles.forEach(t => {
                 t.classList.remove('active');
             });
 
-            // Mostra ou oculta o detalhe correspondente
             if (!isVisible) {
                 details.classList.add('show');
                 title.classList.add('active');
@@ -34,27 +31,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    toggleAllButton.addEventListener('click', () => {
-        const allVisible = Array.from(errorDetails).every(detail => detail.classList.contains('show'));
+    if (toggleAllButton) {
+        toggleAllButton.addEventListener('click', () => {
+            const allVisible = Array.from(errorDetails).every(detail => detail.classList.contains('show'));
 
-        if (allVisible) {
-            // Se todos estão visíveis, oculta todos
-            errorDetails.forEach(detail => {
-                detail.classList.remove('show');
-            });
-            errorTitles.forEach(title => {
-                title.classList.remove('active');
-            });
-            toggleAllButton.textContent = 'Show All';
-        } else {
-            // Se não todos estão visíveis, mostra todos
-            errorDetails.forEach(detail => {
-                detail.classList.add('show');
-            });
-            errorTitles.forEach(title => {
-                title.classList.add('active');
-            });
-            toggleAllButton.textContent = 'Hide All';
-        }
-    });
+            if (allVisible) {
+                errorDetails.forEach(detail => {
+                    detail.classList.remove('show');
+                });
+                errorTitles.forEach(title => {
+                    title.classList.remove('active');
+                });
+                toggleAllButton.textContent = 'Show All';
+            } else {
+                errorDetails.forEach(detail => {
+                    detail.classList.add('show');
+                });
+                errorTitles.forEach(title => {
+                    title.classList.add('active');
+                });
+                toggleAllButton.textContent = 'Hide All';
+            }
+        });
+    } else {
+        console.warn('Toggle All button not found.');
+    }
 });
