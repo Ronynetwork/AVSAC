@@ -83,7 +83,7 @@ for index, error in enumerate(errors):
             <div class="error-details">
                 <p>Message: {error["message"]} at line {error["line"]}</p>
                 <p>Severity: {error["severity"]}</p>
-                <p>Line in Code: "{error["code"]}"</p>
+                <p>Line in Code: {error["code"]}</p>
             </div>
         </div>
     '''
