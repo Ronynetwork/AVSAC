@@ -67,7 +67,30 @@ html_content = '''
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SonarQube Notification</title>
-    <link rel="stylesheet" href="style.css"> <!-- Referência ao arquivo CSS externo -->
+    <style>
+        /* CSS inline */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .notification {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .error {
+            margin-bottom: 10px;
+        }
+        .error-title {
+            font-weight: bold;
+        }
+        .error-details {
+            display: none;
+        }
+        .error-details.show {
+            display: block;
+        }
+    </style>
+
 </head>
 <body>
     <div class="notification">
