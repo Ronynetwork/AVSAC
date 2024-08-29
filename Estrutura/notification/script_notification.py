@@ -3,7 +3,7 @@ import requests, os
 
 # Configurações do SonarQube
 SONARQUBE_URL = "http://localhost:9000"
-TOKEN = os.getenv('sonar-token')
+TOKEN = os.getenv('sonar_token')
 PROJECT_KEY = 'jenkins-sonar'
 
     # Componente do arquivo desejado
