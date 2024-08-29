@@ -3,7 +3,7 @@ import requests, os
 
 # Configurações do SonarQube
 SONARQUBE_URL = "http://localhost:9000"
-TOKEN = "squ_ad26c9185dac75425942aa3e7a062d4aeb95f6c4"
+TOKEN = "squ_722a4dfce90c3450155750c494ff2389c40a5f87"
 PROJECT_KEY = 'AVSAC'
 
     # Componente do arquivo desejado
@@ -54,13 +54,12 @@ for path, details in components_msg.items():
         "message": details[0],
         "severity": details[1],
         "line": details[2],
-        "code": lines[details[2]]
+        "code": lines[details[2]-1]
     }
     errors.append(error_entry)
-    print(error_entry)
 
 
-# Criação do HTML
+# Criação do conteúdo HTML
 html_content = '''
 <!DOCTYPE html>
 <html lang="en">
@@ -76,6 +75,7 @@ html_content = '''
         <button id="toggleAll" class="toggle-all">Show All</button>
 '''
 
+# Itera sobre a lista de erros para adicionar ao HTML
 for index, error in enumerate(errors):
     html_content += f'''
         <div class="error" id="error{index + 1}">
@@ -88,7 +88,7 @@ for index, error in enumerate(errors):
         </div>
     '''
 
-# Fechando tags HTML
+# Fechando as tags HTML
 html_content += '''
     </div>
     <script src="script_java.js"></script>
@@ -96,7 +96,7 @@ html_content += '''
 </html>
 '''
 
-# Salvar o HTML em um arquivo
+# Salvando o HTML em um arquivo
 path_dir = os.path.dirname(os.path.abspath(__file__))
 file_path = os.path.join(path_dir, 'sonarqube-notification.html')
 
