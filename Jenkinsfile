@@ -39,8 +39,8 @@ pipeline {
         stage('Delay') {
             steps {
                 script {
-                    echo 'Aguardando 30 segundos para a inicialização completa do SonarQube...'
-                    sleep time:30, unit: 'SECONDS'
+                    echo 'Aguardando 40 segundos para a inicialização completa do SonarQube...'
+                    sleep time:40, unit: 'SECONDS'
                 }
             }
         }
@@ -69,9 +69,11 @@ pipeline {
                 waitForQualityGate abortPipeline: true
             }
         }
-        stage('Notification in jenkins'){
+        stage('Notification in jenkins') {
             steps {
-                // Copia o arquivo HTML para o diretório de relatórios
+                sh 'chmod +x ./Estrutura/notification/script_notification.py'
+                sh 'python3 ./Estrutura/notification/script_notification.py'
+
                 publishHTML(target: [
                     allowMissing: false,
                     alwaysLinkToLastBuild: true,
