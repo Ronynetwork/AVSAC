@@ -4,7 +4,7 @@ import requests, os
 # Configurações do SonarQube
 SONARQUBE_URL = "http://localhost:9000"
 TOKEN = os.getenv('sonar_token')
-PROJECT_KEY = 'jenkins-sonar'
+PROJECT_KEY = os.getenv('SONAR_PROJECT_KEY')
 
     # Componente do arquivo desejado
 try:
@@ -18,6 +18,8 @@ try:
     components_msg = dict()
     components = list()
     for issue in arq.get('issues', []):
+        id = issue['componentId']
+        print(id)
         message = issue['message']
         severity = issue['severity']
         line = issue['textRange']['startLine']
