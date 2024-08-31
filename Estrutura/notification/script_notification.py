@@ -5,7 +5,7 @@ import requests, os
 SONARQUBE_URL = "http://localhost:9000"
 TOKEN = os.getenv('sonar_token')
 PROJECT_KEY = os.getenv('SONAR_PROJECT_KEY')
-
+print(PROJECT_KEY)
     # Componente do arquivo desejado
 try:
     response = requests.get(
