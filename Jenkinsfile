@@ -54,6 +54,7 @@ pipeline {
                     withSonarQubeEnv('AVSAC') {
                         // Exportando SONAR_CONFIG_NAME como variável de ambiente
                         env.SONAR_PROJECT_KEY = "${SONAR_CONFIG_NAME}"
+                        echo "${SONAR_PROJECT_KEY}"
                         // Executando a análise do código sem especificar sonar.sources
                         sh """
                         ${scannerHome}/bin/sonar-scanner \
