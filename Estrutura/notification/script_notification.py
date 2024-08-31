@@ -12,7 +12,7 @@ try:
         f"{SONARQUBE_URL}/api/issues/search?componentKeys={PROJECT_KEY}",
         auth=(TOKEN, '')
     )
-
+    print(response)
     # Formatando a resposta com o JSON e definindo as variaveis com a lista de dicionarios resultante do GET
     arq = response.json()
     components_msg = dict()
