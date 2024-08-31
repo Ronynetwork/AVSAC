@@ -1,65 +1,66 @@
 import requests, os
-
-
-# Configurações do SonarQube
 SONARQUBE_URL = "http://localhost:9000"
-TOKEN = os.getenv('sonar_token')
-PROJECT_KEY = os.getenv('SONAR_PROJECT_KEY')
-print(PROJECT_KEY)
-    # Componente do arquivo desejado
+TOKEN = 'squ_18f50c8103d21125ca3ef38358475280bccdedfd'
+PROJECT_KEY = 'AVSAC'
+
+components_msg = {}
+components = []
+
 try:
+    # Requisição para obter os problemas do projeto
     response = requests.get(
         f"{SONARQUBE_URL}/api/issues/search?componentKeys={PROJECT_KEY}",
         auth=(TOKEN, '')
     )
-    print(response)
-    # Formatando a resposta com o JSON e definindo as variaveis com a lista de dicionarios resultante do GET
     arq = response.json()
-    components_msg = dict()
-    components = list()
+    
+    # Separando o retorno da requisição
     for issue in arq.get('issues', []):
-        id = issue['componentId']
-        print(id)
+        issue_id = issue['key']
         message = issue['message']
         severity = issue['severity']
-        line = issue['textRange']['startLine']
+        line = int(issue['textRange']['startLine'])
         component = issue['component']
-        text_range = issue.get('textRange', {})
-        error = issue.get('errors')
-        if component not in components:
-            components.append(component)
-            components_msg[component] = [message, severity, line]
-    try:
-        for path in components:
-            response_code = requests.get(
-                f"{SONARQUBE_URL}/api/sources/raw?key={path}",
-                auth=(TOKEN, '')
-            )
-            # Armazenando o codigo escaneado e dividindo em linhas
-            code = response_code.text
-            lines = code.splitlines()
-            path_split = path.replace(f'{PROJECT_KEY}:','')
-    # Formatando a variavel component para remover a key do projeto e definir apenas o PATH
-    except Exception as e:
-        # Caso a resposta não seja JSON, exibe o texto bruto
-        print(e)
-except Exception as e:
-    print(e)
-# Requisição para obter o código-fonte do arquivo
+        if component not in components_msg:
+            components_msg[component] = [{
+            "messages": message,
+            "severity": severity,
+            "line": line,
+            }]
+        else:
+            components_msg[component].append({
+                "messages": message,
+                "severity": severity,
+                "line": int(line), 
+            })
 
+except Exception as e:
+    print(f"Erro ao obter problemas do projeto: {e}")
 
 # Dados de exemplo (substitua pelos dados reais do seu script)
 errors = []
-for path, details in components_msg.items():
-    error_entry = {
-        "file": path.replace(f'{PROJECT_KEY}:',''),
-        "message": details[0],
-        "severity": details[1],
-        "line": details[2],
-        "code": lines[details[2]-1]
-    }
-    errors.append(error_entry)
-
+for path in components_msg.keys():
+    try:
+        response_code = requests.get(
+            f"{SONARQUBE_URL}/api/sources/raw?key={path}",
+            auth=(TOKEN, '')
+        )
+        code = response_code.text.splitlines()
+        path_split = path.replace(f'{PROJECT_KEY}:', '')
+        
+        # Adicionando os erros à lista
+        details = components_msg[path]
+        for det in details:
+            error_entry = {
+                "file": path_split,
+                "message": det['messages'],
+                "severity": det['severity'],
+                "line": det['line'],
+                "code": code[det['line'] - 1] if det['line'] - 1 < len(code) else ""
+            }
+            errors.append(error_entry)
+    except Exception as e:
+        print(f"Erro ao obter código-fonte do componente {path}: {e}")
 
 # Criação do conteúdo HTML
 html_content = '''
