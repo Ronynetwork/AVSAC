@@ -1,7 +1,7 @@
 import requests, os
 SONARQUBE_URL = "http://localhost:9000"
-TOKEN = 'squ_18f50c8103d21125ca3ef38358475280bccdedfd'
-PROJECT_KEY = 'AVSAC'
+TOKEN = os.getenv('sonar_token')
+PROJECT_KEY = os.getenv('SONAR_PROJECT_KEY')
 
 components_msg = {}
 components = []
