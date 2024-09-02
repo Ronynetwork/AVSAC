@@ -8,10 +8,11 @@ components = []
 
 try:
     # Requisição para obter os problemas do projeto
-    response = requests.get(
-        f"{SONARQUBE_URL}/api/issues/search?componentKeys={PROJECT_KEY}",
-        auth=(TOKEN, '')
-    )
+    response = requests.get(f'{SONARQUBE_URL}/api/issues/search',auth=(TOKEN, ''),
+                                params={
+                                    'projectKeys': PROJECT_KEY,
+                                    'statuses': 'OPEN',  # Para issues abertas
+                                    })
     arq = response.json()
     filtred_issues = [issue for issue in arq.get('issues', []) if issue['project'] == PROJECT_KEY] # Filtrando erros e adicionando como lista para remover conflitos entre projetos
     # Separando o retorno da requisição
