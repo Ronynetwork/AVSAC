@@ -70,7 +70,7 @@ pipeline {
             steps{
                 script{
                     def ngnixContainerExists = sh(script: 'docker ps --filter "name=ngnix-app" --format "{{.Names}}"', returnStatus: true)
-                    if (ngnixContainerExists == 0) {
+                    if (ngnixContainerExists == 1) {
                         echo "O serviço Nginx já está em execução, reiniciando o contêiner."
                         sh "docker restart ngnix-app" // Reiniciar o contêiner se estiver em execução
                     } 
