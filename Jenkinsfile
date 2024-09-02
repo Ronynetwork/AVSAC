@@ -87,5 +87,17 @@ pipeline {
                 ])
             }
         }
+        stage('subindo ngnix com o index da pagina analisada'){
+            script{
+                def sonarContainerExists = sh(script: 'docker ps --filter "name=ngnix-app" --format "{{.Names}}"', returnStatus: true)
+                if (sonarContainerExists == 1) {
+                    echo "O serviço SonarQube já está em execução, reiniciando o contêiner."
+                    sh "docker restart ngnix-app" // Reiniciar o contêiner se estiver em execução
+                } 
+                else {
+                    echo "Realizando build do SonarQube"
+                    sh 'docker compose -f ./Estrutura/docker-compose-ngnix.yml up -d'
+            }
+        }
     }
 }
