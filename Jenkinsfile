@@ -23,6 +23,7 @@ pipeline {
             steps {
                 script {
                     def sonarContainerExists = sh(script: 'docker ps --filter "name=sonarqube" --format "{{.Names}}"', returnStatus: true)
+                    echo "${sonarContainerExists}"
                     if (sonarContainerExists == 0) {
                         echo "O serviço SonarQube já está em execução, reiniciando o contêiner."
                         sh "docker restart sonarqube" // Reiniciar o contêiner se estiver em execução
