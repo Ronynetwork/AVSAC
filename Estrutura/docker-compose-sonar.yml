@@ -3,6 +3,11 @@ services:
   sonarqube:
     container_name: sonarqube
     image: sonarqube:lts-community
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1g
     ports:
       - "9000:9000"
     volumes:
