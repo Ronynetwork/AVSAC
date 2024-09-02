@@ -74,29 +74,34 @@ pipeline {
         }
         stage('Notification in jenkins') {
             steps {
-                sh 'chmod +x ./Estrutura/notification/script_notification.py'
-                sh 'python3 ./Estrutura/notification/script_notification.py'
+                script{
+                    sh 'chmod +x ./Estrutura/notification/script_notification.py'
+                    sh 'python3 ./Estrutura/notification/script_notification.py'
 
-                publishHTML(target: [
-                    allowMissing: false,
-                    alwaysLinkToLastBuild: true,
-                    keepAll: true,
-                    reportDir: 'Estrutura/notification',
-                    reportFiles: 'sonarqube-notification.html',
-                    reportName: 'SonarQube Notification'
-                ])
+                    publishHTML(target: [
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: true,
+                        keepAll: true,
+                        reportDir: 'Estrutura/notification',
+                        reportFiles: 'sonarqube-notification.html',
+                        reportName: 'SonarQube Notification'
+                    ])
+                }
             }
         }
         stage('subindo ngnix com o index da pagina analisada'){
-            script{
-                def sonarContainerExists = sh(script: 'docker ps --filter "name=ngnix-app" --format "{{.Names}}"', returnStatus: true)
-                if (sonarContainerExists == 1) {
-                    echo "O serviço SonarQube já está em execução, reiniciando o contêiner."
-                    sh "docker restart ngnix-app" // Reiniciar o contêiner se estiver em execução
-                } 
-                else {
-                    echo "Realizando build do SonarQube"
-                    sh 'docker compose -f ./Estrutura/docker-compose-ngnix.yml up -d'
+            steps{
+                script{
+                    def sonarContainerExists = sh(script: 'docker ps --filter "name=ngnix-app" --format "{{.Names}}"', returnStatus: true)
+                    if (sonarContainerExists == 1) {
+                        echo "O serviço SonarQube já está em execução, reiniciando o contêiner."
+                        sh "docker restart ngnix-app" // Reiniciar o contêiner se estiver em execução
+                    } 
+                    else {
+                        echo "Realizando build do SonarQube"
+                        sh 'docker compose -f ./Estrutura/docker-compose-ngnix.yml up -d'
+                    }
+                }
             }
         }
     }
