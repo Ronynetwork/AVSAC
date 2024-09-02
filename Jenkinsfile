@@ -52,15 +52,16 @@ pipeline {
                     
                     // Obtendo as configurações do SonarQube definidas no Jenkins pelo SonarQube Servers
                     withSonarQubeEnv('AVSAC') {
-                        // Exportando SONAR_CONFIG_NAME como variável de ambiente
+                        // Exportando SONAR_CONFIG_NAME e SONAR_URL como variáveis de ambiente
                         env.SONAR_PROJECT_KEY = "${SONAR_CONFIG_NAME}"
-                        echo "${SONAR_PROJECT_KEY}"
+                        env.SONAR_URL = "${SONAR_HOST_URL}"
+
                         // Executando a análise do código sem especificar sonar.sources
                         sh """
                         ${scannerHome}/bin/sonar-scanner \
                         -Dsonar.sources=./teste_scripts/ \
                         -Dsonar.projectKey=${SONAR_PROJECT_KEY} \
-                        -Dsonar.host.url=${SONAR_HOST_URL} \
+                        -Dsonar.host.url=${SONAR_URL} \
                         -Dsonar.login=${SONAR_AUTH_TOKEN} 
                         """
                     }
