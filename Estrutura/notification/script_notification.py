@@ -1,5 +1,5 @@
 import requests, os
-SONARQUBE_URL = "http://localhost:9000"
+SONARQUBE_URL = os.getenv('SONAR_URL')
 TOKEN = os.getenv('sonar_token')
 PROJECT_KEY = os.getenv('SONAR_PROJECT_KEY')
 
