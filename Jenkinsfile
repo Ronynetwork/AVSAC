@@ -74,11 +74,9 @@ pipeline {
         }
         stage('Notification in jenkins') {
             steps {
-                script{
-                    sh 'chmod +x ./Estrutura/notification/script_notification.py'
-                    sh 'python3 ./Estrutura/notification/script_notification.py'
-
-                }
+                sh 'chmod +x ./Estrutura/notification/script_notification.py'
+                sh 'python3 ./Estrutura/notification/script_notification.py'
+                
                 publishHTML(target: [
                     allowMissing: false,
                     alwaysLinkToLastBuild: true,
