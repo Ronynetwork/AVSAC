@@ -1,8 +1,6 @@
-version: '3.8'
-
 services:
   sonarqube:
-    container_name: ngnix-app
+    container_name: nginx-app
     image: nginx:alpine
     #./index.html:/usr/share/nginx/html/index.html:ro mapeia o arquivo index.html do diretório atual para o local padrão de arquivos HTML do Nginx dentro do container.
     #O sufixo ro indica que deve ser um arquivo read only
@@ -12,7 +10,7 @@ services:
       resources:
         limits:
           cpus: '1.0'
-          memory: 0.5g
+          memory: 1g
     ports:
       - "8083:80"
     command: ["nginx", "-g", "daemon off;"]

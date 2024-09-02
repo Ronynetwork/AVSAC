@@ -6,8 +6,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1.0'
-          memory: 1g
+          cpus: '2.0'
+          memory: 1.5g
     ports:
       - "9000:9000"
     volumes:
