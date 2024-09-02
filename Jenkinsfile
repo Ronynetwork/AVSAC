@@ -87,5 +87,20 @@ pipeline {
                 ])
             }
         }
+        stage('subindo ngnix com o index da pagina analisada'){
+            steps{
+                script{
+                    def ngnixContainerExists = sh(script: 'docker ps --filter "name=ngnix-app" --format "{{.Names}}"', returnStatus: true)
+                    if (ngnixContainerExists == 1) {
+                        echo "O serviço Nginx já está em execução, reiniciando o contêiner."
+                        sh "docker restart ngnix-app" // Reiniciar o contêiner se estiver em execução
+                    } 
+                    else {
+                        echo "Realizando build do Nginx"
+                        sh 'docker compose -f ./Estrutura/docker-compose-ngnix.yml up -d'
+                    }
+                }
+            }
+        }
     }
 }
