@@ -5,11 +5,9 @@ pipeline {
         stage('Realizando a autentiação no Git') {
             steps {
                 script {
-                    def destinationDir= 'AVSAC'
                     git credentialsId: 'log-token-git',
                         url: 'https://github.com/Ronynetwork/AVSAC.git',
                         branch: 'main'
-                        directory: destinationDir
                 }
             }
         }
@@ -92,7 +90,7 @@ pipeline {
             steps{
                 script{
                     def ngnixContainerExists = sh(script: 'docker ps --filter "name=ngnix-app" --format "{{.Names}}"', returnStatus: true)
-                    if (ngnixContainerExists == 1) {
+                    if (ngnixContainerExists == 0) {
                         echo "O serviço Nginx já está em execução, reiniciando o contêiner."
                         sh "docker restart ngnix-app" // Reiniciar o contêiner se estiver em execução
                     } 
