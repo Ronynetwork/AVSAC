@@ -13,9 +13,9 @@ try:
         auth=(TOKEN, '')
     )
     arq = response.json()
-    filtred_ussues = [issue for issue in arq.get('issues', []) if issue['project'] == PROJECT_KEY]
+    filtred_issues = [issue for issue in arq.get('issues', []) if issue['project'] == PROJECT_KEY] # Filtrando erros e adicionando como lista para remover conflitos entre projetos
     # Separando o retorno da requisição
-    for issue in filtred_ussues:
+    for issue in filtred_issues:
         message = issue['message'] # Atribuindo mensagem de erro
         severity = issue['severity'] # Atribuindo severidade
         line = int(issue['textRange']['startLine']) # Atribuindo linha
