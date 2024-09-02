@@ -8,7 +8,7 @@ FROM nginx:alpine
 COPY ./src /usr/share/nginx/html
 
 # Exponha a porta 80 para acesso ao Nginx
-EXPOSE 80
+EXPOSE 8083
 
 # Comando para iniciar o Nginx quando o container for iniciado
 CMD ["nginx", "-g", "daemon off;"]
