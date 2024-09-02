@@ -78,15 +78,15 @@ pipeline {
                     sh 'chmod +x ./Estrutura/notification/script_notification.py'
                     sh 'python3 ./Estrutura/notification/script_notification.py'
 
-                    publishHTML(target: [
-                        allowMissing: false,
-                        alwaysLinkToLastBuild: true,
-                        keepAll: true,
-                        reportDir: 'Estrutura/notification',
-                        reportFiles: 'sonarqube-notification.html',
-                        reportName: 'SonarQube Notification'
-                    ])
                 }
+                publishHTML(target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
+                    reportDir: 'Estrutura/notification',
+                    reportFiles: 'sonarqube-notification.html',
+                    reportName: 'SonarQube Notification'
+                ])
             }
         }
         stage('subindo ngnix com o index da pagina analisada'){
