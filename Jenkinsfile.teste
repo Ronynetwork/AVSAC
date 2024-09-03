@@ -67,11 +67,13 @@ pipeline {
         }
         stage('Quality Gate') {
             steps{
-                waitForQualityGate abortPipeline: false
+                waitForQualityGate abortPipeline: true
             }
         }
-        stage('Notification in jenkins') {
-            steps {
+        post{
+            always {
+                echo "Executando notificação de erros do SonarQube via Script"
+
                 sh 'chmod +x ./Estrutura/notification/script_notification.py'
                 sh 'python3 ./Estrutura/notification/script_notification.py'
 
