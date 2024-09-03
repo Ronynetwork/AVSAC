@@ -62,12 +62,10 @@ Além disso, a estrutura da disciplina foca em como esses serviços podem ser pr
 <h1></h1>
 
 ## As tarefas serão desenvolvidas em 6 semanas para apresentação final do projeto:
-SPRINT 1 – Criação do repositório do Github e criação das pipelines (Ronyldo). Instalação do jenkins (Sara). <br>
-SPRINT 2 – Criação do dockerfile do sonarqube e Configuração do sonarqube ao jekins (Sara). Configurando novamente a pipeline do github (Ronyldo).<br> 
-SPRINT 3 – Configuração do Quality Gates no sonarqube (Sara). Configurando novamente a pipeline inserindo o stage para a verificação do sonarqube (Ronyldo).<br> 
-SPRINT 4 – Buscando códigos para amostra de teste de qualidade de segurança para rodar na ferramenta (Sara). Implementando o Webhooks do Jenkins ao Github e Sonarqube (Ronyldo).<br>
-SPRINT 5 – Validando a funcionalidade do fluxo do processo desenvolvido, com as amostras de códigos coletadas (Ronyldo). Iniciando a criação da apresentação final para a banca (Sara).<br> 
-SPRINT 6 – Organizando a apresentação em formato de slide do projeto final, com todos os resultados obtidos e funcionais (Sara). Gravando as etapas e validando os últimos teste do projeto (Ronyldo).<br>
+
+![sprints](https://github.com/user-attachments/assets/513cf3fe-7ca9-48c6-abe3-a39a4d1f4649)
+
+
 
 <h1></h1>
 
