@@ -69,14 +69,16 @@ pipeline {
         }
         stage('Quality Gate') {
             steps{
-                waitForQualityGate abortPipeline: false
+                waitForQualityGate abortPipeline: true
             }
         }
-        stage('Notification in jenkins') {
-            steps {
+        post {
+            always {
+                echo "Executando notificação de erros do SonarQube via Script"
+
                 sh 'chmod +x ./Estrutura/notification/script_notification.py'
                 sh 'python3 ./Estrutura/notification/script_notification.py'
-                
+
                 publishHTML(target: [
                     allowMissing: false,
                     alwaysLinkToLastBuild: true,
@@ -85,11 +87,9 @@ pipeline {
                     reportFiles: 'sonarqube-notification.html',
                     reportName: 'SonarQube Notification'
                 ])
-            }
-        }
-        stage('subindo ngnix com o index da pagina analisada'){
-            steps{
-                script{
+
+                echo "subindo container ngnix com o index.html"
+                script {
                     def ngnixContainerName = sh(script: 'docker ps --filter "name=ngnix-app" --format "{{.Names}}"', returnStdout: true)
                     if (ngnixContainerName) {
                         echo "O serviço Nginx já está em execução, reiniciando o contêiner."
@@ -98,8 +98,7 @@ pipeline {
                     else {
                         echo "Realizando build do Nginx"
                         sh 'docker compose -f ./Estrutura/docker-compose-ngnix.yml up -d'
-                    }
-                }
+                }                
             }
         }
     }
