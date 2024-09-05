@@ -11,11 +11,10 @@
   </h2>
 </h1>
 
-<div align="center">
-  
-  # Diagrama drescritivo do funcionamento do projeto
-  <img src="Estrutura/Diagrama.png" alt="Diagrama"/>
-</div>
+
+
+
+![agoravai](https://github.com/user-attachments/assets/7a9cf138-9720-4bee-9add-b16a592df018)
 
 # Introdução 
 
