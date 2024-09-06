@@ -1,6 +1,5 @@
 import requests, difflib, os
 
-
 # Configurações do SonarQube
 SONARQUBE_URL = os.getenv('SONAR_URL')
 TOKEN = os.getenv('sonar_token')
