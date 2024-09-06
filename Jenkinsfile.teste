@@ -103,14 +103,12 @@ pipeline {
             }
         }
         failure {
-            steps{
-                script{
-                    echo 'realizando a correcao de bugs...'
-                    sh 'python3 Estrutura/source.py'
-                    echo 'Realizando commit'
-                    sh 'chmod +x ./Estrutura/git_branch.sh'
-                    sh './Estrutura/git_branch.sh'
-                }   
+            script{
+                echo 'realizando a correcao de bugs...'
+                sh 'python3 Estrutura/source.py'
+                echo 'Realizando commit'
+                sh 'chmod +x ./Estrutura/git_branch.sh'
+                sh './Estrutura/git_branch.sh'
             }
         }
     }   
