@@ -71,22 +71,6 @@ pipeline {
                 waitForQualityGate abortPipeline: true
             }
         }
-        stage('Bug correction'){
-            steps{
-                script{
-                    echo 'realizando a correcao de bugs...'
-                    sh 'python3 Estrutura/source.py'
-                }
-            }
-        }
-        stage('Push request') {
-            steps {
-                script {
-                    sh 'chmod +x ./Estrutura/git_branch.sh'
-                    sh './Estrutura/git_branch.sh'
-                }   
-            }
-        }
     }
     post {
         always {
@@ -116,6 +100,17 @@ pipeline {
                     echo "Realizando build do Nginx"
                     sh 'docker compose -f ./Estrutura/docker-compose-ngnix.yml up -d'
                 }                
+            }
+        }
+        failure {
+            steps{
+                script{
+                    echo 'realizando a correcao de bugs...'
+                    sh 'python3 Estrutura/source.py'
+                    echo 'Realizando commit'
+                    sh 'chmod +x ./Estrutura/git_branch.sh'
+                    sh './Estrutura/git_branch.sh'
+                }   
             }
         }
     }   
