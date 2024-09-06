@@ -68,7 +68,7 @@ pipeline {
         }
         stage('Quality Gate') {
             steps{
-                waitForQualityGate abortPipeline: false
+                waitForQualityGate abortPipeline: true
             }
         }
         stage('Bug correction'){
@@ -103,7 +103,8 @@ pipeline {
                 reportFiles: 'sonarqube-notification.html',
                 reportName: 'SonarQube Notification'
             ])
-
+        }
+        success {
             echo "subindo container ngnix com o index.html"
             script {
                 def ngnixContainerName = sh(script: 'docker ps --filter "name=ngnix-app" --format "{{.Names}}"', returnStdout: true)
