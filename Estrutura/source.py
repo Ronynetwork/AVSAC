@@ -6,32 +6,27 @@ SONARQUBE_URL = os.getenv('SONAR_URL')
 TOKEN = os.getenv('sonar_token')
 PROJECT_KEY = os.getenv('SONAR_PROJECT_KEY')
 
-def resolve_error(component_path, line, start_offset, end_offset, message):
+def resolve_error(component, line, message):
     # Função para resolver um erro específico no código baseado na análise do SonarQube
-    
-    # Verifica se a linha e os offsets foram fornecidos
-    if line and start_offset is not None and end_offset is not None:
-        similaridade_minima = 0.49  # Define o limite mínimo de similaridade (0 a 1) para considerar duas palavras como similares
-        
-        # Abrir o arquivo de código e ler todas as linhas
-        with open(component_path, 'r') as file:
-            lines = file.readlines()
+    component_path =  component.replace(f'{PROJECT_KEY}:', './')
+    similaridade_minima = 0.49  # Define o limite mínimo de similaridade (0 a 1) para considerar duas palavras como similares
+    # Abrir o arquivo de código e ler todas as linhas
+    with open(component_path, 'r') as file:
+        lines = file.readlines()
+    # Seleciona a linha específica onde o erro foi identificado e a divide em palavras
+    print(line)
+    error_line = lines[line-1].split()
 
-        # Seleciona a linha específica onde o erro foi identificado e a divide em palavras
-        error_line = lines[line-1].split()
-
-        # Divide a mensagem de erro do SonarQube em palavras
-        erro_sq = message.split()
-    
-    # Substituição de palavras similares entre a linha de código e a mensagem de erro
+    # Divide a mensagem de erro do SonarQube em palavras
+    erro_sq = message.split()
     for palavra1 in error_line:
         for palavra2 in erro_sq:
-            # Utiliza a biblioteca difflib para calcular a similaridade entre as palavras
+        # Utiliza a biblioteca difflib para calcular a similaridade entre as palavras
             similaridade = difflib.SequenceMatcher(None, palavra1, palavra2).ratio()
-            
             if similaridade > similaridade_minima:
                 # Se a similaridade for maior que o mínimo definido, substitui a palavra no código
                 print(f'Palavras similares encontradas: "{palavra1}" e "{palavra2}" com similaridade de {similaridade:.2f}')
+                # Substituição de palavras similares entre a linha de código e a mensagem de erro
                 lines[line-1] = lines[line-1].replace(palavra1, palavra2)
     
     # Escreve as alterações feitas no código de volta no arquivo
@@ -49,7 +44,7 @@ def code_request():
                                     'statuses': 'OPEN',  # Filtra para issues abertas
                                 })
     except Exception as e:
-        print(f'Erro na requisição {e}')
+        print('Erro na requisição ')
     
     # Verifica se a requisição foi bem-sucedida
     if response.status_code == 200:
@@ -62,21 +57,15 @@ def code_request():
             # Itera sobre as issues filtradas
             for issue in filtred_issues:
                 message = issue['message']  # Mensagem de erro do SonarQube
-                severity = issue['severity']  # Severidade do problema
                 line = issue.get('line')  # Linha onde o problema foi identificado
                 component = issue['component']  # Componente (arquivo) onde o problema está localizado
-                text_range = issue.get('textRange', {})  # Faixa de texto específica do problema
-                print(f"Problema: {message} - Severidade: {severity} - linha: {int(line-1)}")
-
-            # Obtém os offsets de início e fim do erro, se disponíveis
-            start_offset = text_range.get('startOffset', None)
-            end_offset = text_range.get('endOffset', None)
-
+                #print(f"Problema: {message} - Severidade: {severity} - linha: {int(line-1)}")
+                print(component)
+                if component == f'{PROJECT_KEY}:teste_scripts/teste.py':
+                    resolve_error(component, line, message)
             # Converte o nome do componente (arquivo) em um caminho de arquivo local
-            component_path = component.replace(f'{PROJECT_KEY}:', './')
             
             # Chama a função para tentar resolver o erro
-            resolve_error(component_path, line, start_offset, end_offset, message)
         else:
             print(f'O projeto <{PROJECT_KEY}> não possui issues abertas!')
     else:
