@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Conferindo se a branch main existe, se não, cria
-git pull --rebase origin main
+git reset --hard
+git pull
 git checkout -b main || git checkout main
 
 # Restaurar todos os arquivos modificados para o estado do último commit
