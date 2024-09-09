@@ -3,7 +3,7 @@ def calcular_media(valores):
         return 0  # Tratamento simples para evitar divisão por zero
     soma = 0
     for v in valores:
-        soma =+ v
+        soma += v
         print(soma)
     media = soma / len(valores)
     return media
